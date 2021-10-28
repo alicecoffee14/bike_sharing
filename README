@@ -1,0 +1,75 @@
+############################# TECHNICAL TEST ##################################
+
+Model and visualize some Key Performance Indicators of a bike sharing service.
+
+******************************* Description ***********************************
+
+You operate a fleet of 1000 bikes over 5 different cities. 
+Goal: emulate and visualize data from a bike sharing operator perspective. For 
+a  meeting with investors, present a summary of the main insights of the year 
+2020, and a dashboard to support the presentation.
+
+This test is a two-step work:
+1)  In a first part, data are emulated from scratch in order to simulate the 
+    service main KPIs over a year. A Jupyter Notebook called 'Zoov_bikes.ipynb', 
+    contained in this directory, generates data and the describes the procedure.
+    A csv file is produced and contained in this same directory under the name: 
+    'bike_summary.csv'
+
+2)  In a second part, use the generated data to build a dashboard on a data 
+    visualization tool: Google DataStudio.
+    The relative 3-pages presentation is accessible at this link:
+    https://datastudio.google.com/reporting/82ea52e5-40a5-4775-9278-c9be936592a8 
+
+    
+******************************* Data Generation *********************************
+
+Despite more insights on the procedure chosen to generate data are given along the 
+notebook here are some of the key points and eventual leads for further 
+improvements:
+-   number of bike rides per day is assumed to depend on parameters such as 
+    weather, temperature, season. An estimation of these conditio:ns is given for
+    each city. A unique average temperature per city is given according to the 
+    season, a possible improvement could be a more refined estimation (.i.e. vary
+    the average temperature along different months). Moreover other dependencies such
+    as week/weekend days or number of stations/residents, number of bike sharing 
+    competitors etc., holiday periods could be introduced.
+-   With the number of bike rides we can estimate the number of users and the 
+    total minutes of bike rides per day. Assuming two type of users (registered and
+    occasional) with different price per minute the total income of the day is 
+    given. This very simple method do not include the monthly fee paid by users with
+    subscriptions, which is a source of fixed income and stability for the company.
+    Moreover an initial fixed fee can be introduced for each bike ride (.i.e. each 
+    time a bike is taken 1 euro is charged). 
+    Bikes could be differentiated into electrical and mechanical ones and add a 
+    different pricing. Many more realistic details can in principle be added.
+-   The number of registered users as well as the customer satisfaction is 
+    modeled to be growing linearly in 2020: under the assumption that an
+    improvement of performances as well as a larger popularity of our app is
+    achieved, we construct an optimistic dataset with positive growth, which varies
+    for each city. 
+    Also in this case a more sophisticated modelization can be implemented adding
+    a parameter describing the performance improvements, a correlation between 
+    registered user increase and their satisfaction, different parameters of 
+    satisfaction (.i.e. quality of the bike or the app, proximity of the station…),
+    etc.
+ 
+******************************* Data Visualization *********************************
+
+In the dashboard we used three pages to focus on three main aspects:
+
+1)  The time dependence of number of users along the year to enlighten the weather and
+    temperature dependence. What do we learn? We can decide to do maintenance progress 
+    in winter where the usage is limited. We can also try to  base our income predictions 
+    on detailed weather forecast. We might also add more bikes in a city like Madrid
+    where many users per day are observed all along the year.
+2)  We present the incomes per city along different months of the year. We show the 
+    correlation between bike trips and bike users: the last one is lower because some
+    people use our service twice or more times a day (food delivery, go back and 
+    forth from work..). As we assumed the average bike trip minutes to be constant
+    along the year, its fluctuation only has a dependence on the bike usage. 
+3)  Our annual growth in term of new subscriptions and customer satisfaction;
+    We are happy for the global increase but we might want to invest on cities
+    like London where out users are not as keen on subscribe. The introduction of
+    further parameters describing city road conditions, user habits, competitors could
+    definitely refine our results on the performance and perspectives in different locations.
